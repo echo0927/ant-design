@@ -10,15 +10,15 @@ interface Option {
 const options: Option[] = [
   {
     code: 'zhejiang',
-    name: 'Zhejiang',
+    name: '+',
     items: [
       {
         code: 'hangzhou',
-        name: 'Hangzhou',
+        name: '1',
         items: [
           {
             code: 'xihu',
-            name: 'West Lake',
+            name: '0.25',
           },
         ],
       },
