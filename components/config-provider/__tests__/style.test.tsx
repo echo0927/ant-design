@@ -3,8 +3,10 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Breadcrumb from '../../breadcrumb';
 import Checkbox from '../../checkbox';
+import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Image from '../../image';
+import Pagination from '../../pagination';
 import Result from '../../result';
 import Segmented from '../../segmented';
 import Slider from '../../slider';
@@ -223,7 +225,7 @@ describe('ConfigProvider support style and className props', () => {
     const { container } = render(
       <ConfigProvider
         checkbox={{
-          className: 'cp-breadcrumb',
+          className: 'cp-checkbox',
           style: {
             background: 'red',
           },
@@ -233,7 +235,40 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveClass('cp-breadcrumb');
+    expect(container.querySelector('.ant-checkbox-wrapper')).toHaveClass('cp-checkbox');
     expect(container.querySelector('.ant-checkbox-wrapper')).toHaveStyle({ background: 'red' });
+  });
+
+  it('Should Pagination className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        pagination={{ className: 'cp-pagination', style: { backgroundColor: 'blue' } }}
+      >
+        <Pagination />
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLUListElement>('.ant-pagination');
+    expect(element).toHaveClass('cp-pagination');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Descriptions className & style works', () => {
+    const { container } = render(
+      <ConfigProvider
+        descriptions={{
+          className: 'cp-className',
+          style: {
+            background: 'red',
+          },
+        }}
+      >
+        <Descriptions title="User Info">
+          <Descriptions.Item label="UserName">muxin</Descriptions.Item>
+        </Descriptions>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-descriptions')).toHaveClass('cp-className');
+    expect(container.querySelector('.ant-descriptions')).toHaveStyle({ background: 'red' });
   });
 });

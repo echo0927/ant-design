@@ -60,9 +60,7 @@ export interface ConfigConsumerProps {
   input?: {
     autoComplete?: string;
   };
-  pagination?: {
-    showSizeChanger?: boolean;
-  };
+  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
@@ -98,6 +96,7 @@ export interface ConfigConsumerProps {
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
   checkbox?: ComponentStyleConfig;
+  descriptions?: ComponentStyleConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

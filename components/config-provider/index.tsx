@@ -113,9 +113,7 @@ export interface ConfigProviderProps {
   select?: {
     showSearch?: boolean;
   };
-  pagination?: {
-    showSizeChanger?: boolean;
-  };
+  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
@@ -147,6 +145,7 @@ export interface ConfigProviderProps {
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
   checkbox?: ComponentStyleConfig;
+  descriptions?: ComponentStyleConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -238,12 +237,14 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     spin,
     typography,
     checkbox,
+    descriptions,
     divider,
     steps,
     image,
     result,
     slider,
     breadcrumb,
+    pagination,
   } = props;
 
   // =================================== Warning ===================================
@@ -299,12 +300,14 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     spin,
     typography,
     checkbox,
+    descriptions,
     divider,
     steps,
     image,
     result,
     slider,
     breadcrumb,
+    pagination,
   };
 
   const config = {
